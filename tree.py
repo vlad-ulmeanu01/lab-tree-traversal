@@ -62,27 +62,74 @@ class Tree:
             return self._find(data, node.right)
 
     def deleteTree(self):
-        # TODO 1
+        """
+        Method for deleting a tree.
+
+        Args:
+            nothing (tree is passed implicitly in "self").
+
+        Returns:
+            nothing.
+        """
         self.root = None
 
     def printTree(self):
-        # TODO 1
+        """
+        Method for printing a tree.
+
+        Args:
+            nothing (tree is passed implicitly in "self").
+
+        Returns:
+            nothing (prints directly to stdout).
+        """
         if self.root is not None:
             self._printInorderTree(self.root)
 
     def _printInorderTree(self, node):
-        # TODO 1
+        """
+        Prints the subtree (inorder) that is rooted in "node". 
+        Inorder <=> left subtree + node + right subtree.
+
+        Args:
+            node (int): root of the subtree that has to be printed.
+
+        Returns:
+            nothing (prints directly to stdout).
+        """
         if node is not None:
             self._printInorderTree(node.left)
             print(str(node.data) + ' ')
             self._printInorderTree(node.right)
 
     def _printPreorderTree(self, node):
-        # TODO 2
-        pass
+        """
+        Prints the subtree (inorder) that is rooted in "node". 
+        Preorder <=> node + left subtree + right subtree.
+
+        Args:
+            node (int): root of the subtree that has to be printed.
+
+        Returns:
+            nothing (prints directly to stdout).
+        """
+        if node is not None:
+            print(str(node.data) + ' ')
+            self._printPreorderTree(node.left)
+            self._printPreorderTree(node.right)
 
     def _printPostorderTree(self, node):
-        # TODO 2
-        pass
+        """
+        Prints the subtree (inorder) that is rooted in "node". 
+        Postorder <=> left subtree + right subtree + node.
 
+        Args:
+            node (int): root of the subtree that has to be printed.
 
+        Returns:
+            nothing (prints directly to stdout).
+        """
+        if node is not None:
+            self._printPostorderTree(node.left)
+            self._printPostorderTree(node.right)
+            print(str(node.data) + ' ')
